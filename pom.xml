@@ -10,9 +10,36 @@
       <version>9.4.19.v20190610</version>
     </dependency>
     <dependency>
-    	<groupId>sunshine</groupId>
-    	<artifactId>cg2-core</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
+      <groupId>sunshine</groupId>
+      <artifactId>cg2-core</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>sunshine.cg2.jettyserver.WebGameServer</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
