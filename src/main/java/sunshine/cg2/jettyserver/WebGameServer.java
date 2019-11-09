@@ -41,7 +41,7 @@ public class WebGameServer extends Server {
 	
 	public static void main(String[] args) throws Exception
 	{
-		String resourceBase=args.length>1?args[1]:null;
+		String resourceBase=args.length>0?args[0]:null;
 		WebGameServer server=new WebGameServer(DEFAULT_PORT,resourceBase);
 		server.addLifeCycleListener(new LifeCycle.Listener()
 			{
